@@ -5,7 +5,7 @@ import "fmt"
 
 func main() {
 	fmt.Println("Число Студентиков: ")
-	var N, K, studentListNumber, studentsPerGroup, studentsGroupNumber int
+	var N, K, studentListNumber, studentsGroupNumber int
 	fmt.Scan(&N)
 
 	fmt.Println("Число Групп: ")
@@ -13,15 +13,13 @@ func main() {
 
 	fmt.Println("Порядковый номер Студентика")
 	fmt.Scan(&studentListNumber)
-	studentsPerGroup = N / K - N % K
-	studentsGroupNumber = studentListNumber - studentsPerGroup * K -
+	studentsPerGroup := N/K
 
-	if studentListNumber % studentsPerGroup == 0 {
-		if N % K == 0 {
+	if N%K != 0 {
+		studentsGroupNumber =  1
+		fmt.Println("Группа Студентика", studentsGroupNumber)
+	} else if N%K == 0 {
+		studentsGroupNumber = studentListNumber / studentsPerGroup + 1
+		fmt.Println("Группа Студентика", studentsGroupNumber)
 		}
 	}
-	fmt.Println("Группа Студентика", studentsGroupNumber)
-} else {
-fmt.Println("Группа Студентика", studentsGroupNumber + 1)
-}
-}
